@@ -52,7 +52,7 @@ Pour parcourrir un tableau, on utilise le boucle foreach:
 ```
 
 Exemple de creation d'un table avec php
-```php+html
+```php
 <table>
     <tr>
         <th>Nom</th>
