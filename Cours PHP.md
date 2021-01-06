@@ -93,8 +93,8 @@ Pour initier la connection à la b.d.d, on utilise la fonction pdo()
 
 ```php
 <?php 
-    PDO::exec("SQL syntaxe") // This will return only the numbers of lines affected
-    PDO::query("SQL sytaxe") // This will execute the SQL passed as parametrs
+    PDO::exec("SQL syntaxe") // Retourne le nombre de ligne affectee
+    PDO::query("SQL sytaxe") // 
     PDO::prepare("SQL syntaxe") // This will return an PDOStatement
     PDOStatement::execute() // This will execute the previously SQL code
     PDOStatement::fetch() // This function will return an array of the content of the database
@@ -121,7 +121,7 @@ class Personnage {
     private $firstName;
     private $lastName;
 
-    public function __constructor($firstName, $lastName){
+    public function __construct($firstName, $lastName){
         $this->firstName = $firstName;
         $this->lastName = $lastName;
     }
@@ -134,7 +134,9 @@ class Personnage {
         return $this->lastName;
     }
 
-    public function setFirstName()
+    public function setFirstName($firstName){
+        $this->firstName = $firstName;
+    }
 }
 
 ?>
