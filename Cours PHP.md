@@ -141,3 +141,25 @@ class Personnage {
 
 ?>
 ```
+
+### Exemple de POO - Implementation d'un mini RPG
+
+Dans cette exemple, on va créer un petit système de RPG; on va donc créer deux classes: Personnage et Armes.
+
+Le concepte du jeu est simple:
+
+1. La classe Arme:
+
+La classe Arme est constituée de deux attributs: **le nom de l'arme** et **le degat apportée par l'arme**
+
+La classe Arme a 5 methodes: **upgrade**, les **2 accesseurs** et les **2 muttateurs**.
+
+Upgrade permet d'augmenter le degat apportée par l'arme
+
+Les accesseurs permettent d'obtenir les valeurs des attirbuts tandis que les muttateurs pour changer les valeurs des attributs.
+
+2. La classe Personnage:
+
+La classe Personnage a trois attributs: **nom**, **point de vie**, et **arme**(c'est une instance de l'objet Arme)
+
+La classe a 4 methodes(a part les accesseurs et les muttateurs): **attaquer**, **status**, **regenerer**, **upgrade_vie**, **upgrade_arme**
