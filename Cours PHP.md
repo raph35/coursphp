@@ -163,3 +163,14 @@ Les accesseurs permettent d'obtenir les valeurs des attirbuts tandis que les mut
 La classe Personnage a trois attributs: **nom**, **point de vie**, et **arme**(c'est une instance de l'objet Arme)
 
 La classe a 4 methodes(a part les accesseurs et les muttateurs): **attaquer**, **status**, **regenerer**, **upgrade_vie**, **upgrade_arme**
+
+
+
+Forme de la status:
+
+| Status | Valeur |
+| ------ | ------ |
+| Nom    |        |
+| Vie    |        |
+| Arme   |        |
+
