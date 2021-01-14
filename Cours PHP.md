@@ -174,3 +174,97 @@ Forme de la status:
 | Vie    |        |
 | Arme   |        |
 
+### Exemple 2 - La classe Database
+
+Dans cette exemple, on va creer une classe Database qui va gerer la connection a notre base de donnees:
+
+Donc, cette classe va contenir un objet PDO, qui represente notre base de donnees. Et elle aura des methodes qui permettent d'obtenir l'objet PDO pour faire des requettes.
+
+```php
+<?php
+class Database{
+    public function __construct($db_name, $db_host, $db_user, $db_password){
+		try{
+            $this->pdo = new PDO("mysql:dbname=$db_name;host:$db_host",$db_user, $db_password);
+        } catch(Exception $e) {
+            die("Error " . $e->getMessage());
+        }
+    }
+	
+    public function getPDO(){
+        return $this->pdo;
+    }
+    
+    private PDO $pdo;
+    
+
+}
+?>
+```
+
+
+
+### Statique
+
+Une classe statique est une classe qui n'a pas besoin d'etre instancier. L'interet des classes statiques est qu'on ne gaspille pas de memoire a creer des objets en accedant directement à leur methodes
+
+Exemple:
+
+On va creer une classe Config qui va contenir tous les configuration de notre base de donées
+
+```php
+<?php
+    
+define("CONFIG_FILE", "./config.php");
+class Config{
+	private static $settings;
+    
+    
+    private function __construct($fileName){
+        $settings = require($fileName);
+    }
+    
+    public static function get($key){
+        if (is_null(self::$settings))
+            self::$settings = require(CONFIG_FILE);
+        if(!isset(self::$settings[$key]))
+            return null;
+       	return self::$settings[$key];
+    }
+}
+```
+
+
+
+Ensuite, on va transformer notre classe en une classe database en classe statique car on a vraiment pas besoin d'instancier cette classe. On va aussi utiliser notre classe Config precedent dans notre nouvelle classe. Ainsi, on va parler de la statique.
+
+
+
+```php
+<?php
+class Database{
+    public function __construct(){
+        $db_name = Config::get("db_name");
+        $db_host = Config::get("db_host");
+        $db_user = Config::get("db_user");
+        $db_password = Config::get("db_password";)
+		try{
+            $this->pdo = new PDO("mysql:dbname=$db_name;host:$db_host",$db_user, $db_password);
+        } catch(Exception $e) {
+            die("Error " . $e->getMessage());
+        }
+    }
+	
+    public static function getPDO(){
+        if(is_null(self::$pdo))
+            self::$pdo = new Database(); 
+        return SELF::pdo;
+    }
+    
+    private static PDO $pdo;
+    
+
+}
+?>
+```
+
