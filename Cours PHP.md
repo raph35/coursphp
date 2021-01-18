@@ -258,7 +258,7 @@ class Database{
     public static function getPDO(){
         if(is_null(self::$pdo))
             self::$pdo = new Database(); 
-        return SELF::pdo;
+        return self::pdo;
     }
     
     private static PDO $pdo;
@@ -267,4 +267,12 @@ class Database{
 }
 ?>
 ```
+
+### Héritage
+
+En [programmation orientée objet](https://fr.wikipedia.org/wiki/Programmation_orientée_objet), l’**héritage** est un mécanisme qui permet, lors de la [déclaration](https://fr.wikipedia.org/wiki/Déclaration_(informatique)) d’une nouvelle [classe](https://fr.wikipedia.org/wiki/Classe_(informatique)), d'y inclure les caractéristiques d’une autre classe.
+
+Exemple:
+
+<img src="Images/220px-Heritage_informatique.svg.png" alt="220px-Heritage_informatique.svg" style="zoom:100%;" />
 
